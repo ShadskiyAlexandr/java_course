@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "8.0.0"
+}
+
+group 'com.quantori'
+version '1.0-SNAPSHOT'
+def junit = '5.9.2'
+def restAssured = '5.3.0'
+def jackson = '2.14.2'
+def faker = '1.0.2'
+
+repositories {
+    mavenCentral()
+}
+
+
+
+dependencies {
+    testImplementation "io.rest-assured:rest-assured:${restAssured}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junit}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jackson}"
+    implementation "com.github.javafaker:javafaker:${faker}"
+}
+
+test {
+    useJUnitPlatform()
+}
+

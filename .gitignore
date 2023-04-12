@@ -1,0 +1,8 @@
+.gradle
+.idea
+build
+.git
+.allure
+allure-results
+target
+*.iml
