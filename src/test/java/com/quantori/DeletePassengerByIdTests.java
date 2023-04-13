@@ -1,7 +1,6 @@
 package com.quantori;
 
 import com.quantori.base.BaseTest;
-import com.quantori.dto.response.PassengerInfoResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,18 +10,7 @@ public class DeletePassengerByIdTests extends BaseTest {
 
     @BeforeEach
     void createTestData() {
-        passengerInfo =
-                given()
-                        .spec(requestSpec)
-                        .body(passenger)
-                        .when()
-                        .post()
-                        .then()
-                        .spec(responseSpec)
-                        .extract()
-                        .response()
-                        .getBody()
-                        .as(PassengerInfoResponse.class);
+        createNewPassenger();
     }
 
     @Test
