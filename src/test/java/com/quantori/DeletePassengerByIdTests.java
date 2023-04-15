@@ -4,8 +4,6 @@ import com.quantori.base.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-
 public class DeletePassengerByIdTests extends BaseTest {
 
     @BeforeEach
@@ -15,10 +13,8 @@ public class DeletePassengerByIdTests extends BaseTest {
 
     @Test
     void deletePassengerByIdTest() {
-        given()
-                .spec(requestSpec)
-                .when()
-                .delete("/{id}", passengerInfo.getId())
+        testServiceApi
+                .deletePassengerById(passengerInfo.getId())
                 .then()
                 .spec(responseSpec);
     }

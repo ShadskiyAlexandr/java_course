@@ -12,7 +12,7 @@ import lombok.With;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
-public class PassengerInfoRequest {
+public class PassengerDetailsRequest {
 
     @JsonProperty("name")
     public String name;

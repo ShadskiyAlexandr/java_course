@@ -5,8 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-
 public class UpdatePassengerDetailsByIdTests extends BaseTest {
 
     @BeforeEach
@@ -21,14 +19,11 @@ public class UpdatePassengerDetailsByIdTests extends BaseTest {
 
     @Test
     void getDetailsInfoTest() {
-        given()
-                .spec(requestSpec)
-                .body(passenger)
-                .when()
-                .put("/{id}", passengerInfo.getId())
-                .prettyPeek()
-                .then()
-                .spec(responseSpec);
+        testServiceApi
+                .updatePassengerById(passengerInfo.getId(), passenger)
+                        .prettyPeek()
+                        .then()
+                        .spec(responseSpec);
     }
 }
 

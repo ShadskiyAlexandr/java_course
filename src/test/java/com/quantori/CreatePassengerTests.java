@@ -1,12 +1,9 @@
 package com.quantori;
 
 import com.quantori.base.BaseTest;
-import com.quantori.dto.response.PassengerInfoResponse;
+import com.quantori.dto.response.PassengerDetailsResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
-
-import static io.restassured.RestAssured.given;
 
 public class CreatePassengerTests extends BaseTest {
 
@@ -19,16 +16,12 @@ public class CreatePassengerTests extends BaseTest {
     @Test
     void createPassengerTest() {
         passengerInfo =
-            given()
-                    .spec(requestSpec)
-                    .body(passenger)
-            .when()
-                    .post()
-                    .prettyPeek()
-            .then()
-                    .spec(responseSpec)
-                    .extract()
-                    .response()
-                    .as(PassengerInfoResponse.class);
+                testServiceApi
+                        .createPassenger(passenger)
+                        .then()
+                        .spec(responseSpec)
+                        .extract()
+                        .response()
+                        .as(PassengerDetailsResponse.class);
     }
 }

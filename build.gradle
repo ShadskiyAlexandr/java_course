@@ -17,7 +17,7 @@ repositories {
 
 
 dependencies {
-    testImplementation "io.rest-assured:rest-assured:${restAssured}"
+    implementation "io.rest-assured:rest-assured:${restAssured}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junit}"
     implementation "com.fasterxml.jackson.core:jackson-databind:${jackson}"
     implementation "com.fasterxml.jackson.core:jackson-core:${jackson}"

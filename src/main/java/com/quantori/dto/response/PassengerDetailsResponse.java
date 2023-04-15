@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PassengerInfoResponse {
+public class PassengerDetailsResponse {
 
 
     @JsonProperty("_id")
