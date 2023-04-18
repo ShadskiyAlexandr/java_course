@@ -4,12 +4,12 @@ import com.github.javafaker.Faker;
 import com.quantori.dto.request.PassengerDetailsRequest;
 import com.quantori.dto.response.PassengerDetailsResponse;
 import com.quantori.service.TestServiceApi;
-import io.restassured.RestAssured;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 
 abstract public class BaseTest {
     protected static ResponseSpecification responseSpec;
@@ -31,8 +31,6 @@ abstract public class BaseTest {
                 .expectStatusCode(200)
                 .expectContentType(ContentType.JSON)
                 .build();
-
-        RestAssured.responseSpecification = responseSpec;
     }
 
     @BeforeEach
@@ -59,5 +57,11 @@ abstract public class BaseTest {
                         .extract()
                         .response()
                         .as(PassengerDetailsResponse.class);
+
+        System.out.println(passenger.toString());
+    }
+
+    protected boolean checkIfTestPositive(TestInfo info) {
+        return info.getTags().contains("PositiveTest");
     }
 }

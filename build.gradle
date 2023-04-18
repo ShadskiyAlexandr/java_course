@@ -26,6 +26,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-annotations:${jackson}"
     implementation "com.github.javafaker:javafaker:${faker}"
     implementation "io.qameta.allure:allure-rest-assured:${allure}"
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 }
 
 test {
