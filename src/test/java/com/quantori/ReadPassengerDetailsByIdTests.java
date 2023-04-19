@@ -19,13 +19,13 @@ public class ReadPassengerDetailsByIdTests extends BaseTest {
             createNewPassenger();
         }
     }
-//
-//    @AfterEach
-//    void deleteTestData(TestInfo info) {
-//        if (checkIfTestPositive(info)) {
-//            deletePassengerById();
-//        }
-//    }
+
+    @AfterEach
+    void deleteTestData(TestInfo info) {
+        if (checkIfTestPositive(info)) {
+            deletePassengerById();
+        }
+    }
 
     @Test
     @Tag("PositiveTest")
